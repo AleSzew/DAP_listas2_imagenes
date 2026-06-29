@@ -10,13 +10,14 @@ class PlayerScreen extends StatelessWidget {
 
     Player(
       name: "Lionel Messi",
-      description: "Campeón del mundo con Argentina.",
-      image: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg",
+      description: 
+      "Nacido en Rosasrio jugó profesionalemnte en el Barcelona(2004-2021), Paris Saint Germain (2021-2023) e Inter de Miamia(2023-presente), ademas de esto es el capitan de la Seleccion Argentina y el mejor jugador de todos los tiempo.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKjSMEx8zlf433jxyKEP9DiOBJVXDg-CpvHar3BFrHLEao10Xrti0IJ4EO&s=10.jpg",
     ),
 
     Player(
       name: "Lautaro Martinez",
-      description: "Capitan y 10 del Inter, ex jugador de Racing.",
+      description: "Nacido en Bahia Blanca jugo profesionalmente en Racing Club (2015-2018) y el Inter de Milán (2018-presente) club del cual es el 10 y capitán ",
       image: "https://assets.goal.com/images/v3/blt909c98575cff6814/GOAL%20-%20Blank%20WEB%20-%20Facebook%20-%202024-07-13T191231.216.jpg?auto=webp&format=pjpg&width=3840&quality=60",
     ),
 
@@ -42,39 +43,37 @@ class PlayerScreen extends StatelessWidget {
         itemCount: players.length,
 
         itemBuilder: (context, index) {
-
-          return Card(
-
-            child: ListTile(
-
-              leading: Image.network(
-                players[index].image,
-                width: 50,
+          
+          return SizedBox(
+            height:100,
+            child: Card(
+              child: ListTile(
+                leading: SizedBox(
+                height: 300, 
+                child: Image.network(
+                 players[index].image,        
+               ),
+                ),
+            
+                title: Text(
+                  players[index].name,
+                ),
+            
+                trailing: Icon(
+                  Icons.arrow_forward,
+                ),
+            
+                onTap: () {
+                  context.go(
+                    '/detail',
+                    extra: players[index],
+                  );
+            
+                },
+            
               ),
-
-              title: Text(
-                players[index].name,
-              ),
-
-              subtitle: Text(
-                players[index].description,
-              ),
-
-              trailing: Icon(
-                Icons.arrow_forward,
-              ),
-
-              onTap: () {
-
-                context.go(
-                  '/detail',
-                  extra: players[index],
-                );
-
-              },
-
+            
             ),
-
           );
 
         },

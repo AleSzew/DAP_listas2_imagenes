@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import '../entities/player.dart';
+import '/entities/player.dart';
 
 class DetailScreen extends StatelessWidget {
 
-  final Player player;
+   Player player;
 
-  const DetailScreen({
+   DetailScreen({
     super.key,
     required this.player,
   });
@@ -22,32 +21,32 @@ class DetailScreen extends StatelessWidget {
 
       body: Center(
 
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          children: [
-
-            Image.network(
-              player.image,
-              width: 250,
-            ),
-
-            SizedBox(height: 20),
-
-            Text(
-              player.name,
-              style: TextStyle(fontSize: 25),
-            ),
-
-            SizedBox(height: 20),
-
-            Text(
-              player.description,
-            ),
-
-          ],
-
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Column(
+          
+            mainAxisAlignment: MainAxisAlignment.center,
+          
+            children: [
+          
+              Image.network(
+                player.image,
+                width: 250,
+              ),
+          
+              SizedBox(height: 20),
+          
+              Text(
+                player.name,
+                style: TextStyle(fontSize: 25),
+              ),
+          
+              SizedBox(height: 20),
+                
+              Text(player.description),
+            ],
+          
+          ),
         ),
 
       ),

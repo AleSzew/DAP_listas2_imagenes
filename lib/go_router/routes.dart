@@ -6,12 +6,12 @@ import '/entities/player.dart';
 
 final appRouter = GoRouter(
 
-  initialLocation: '/',
+  initialLocation: '/login',
 
   routes: [
 
     GoRoute(
-      path: '/',
+      path: '/login',
       builder: (context, state) => LoginScreen(),
     ),
 

@@ -35,55 +35,55 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(title: Text("Login")),
 
       body: Center(
-        child: Column(
+        child: SizedBox(
+          width: 900,
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
+           
             TextField(
               controller: emailController,
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.email),
                 border: OutlineInputBorder(),
                 hintText: "Email",
+                
               ),
             ),
 
-            SizedBox(height: 20),
+            SizedBox(height: 20, width: 10,),
 
             TextField(
               controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.lock),
                 hintText: "Contraseña",
               ),
             ),
 
-            SizedBox(height: 20),
-
+            SizedBox(height: 20, width: 10,),
             ElevatedButton(
               onPressed: () {
 
-                bool encontrado = false;
+                bool correcto = false;
 
-                for (User u in users) {
+                for (User i in users) {
 
                   if (
-                    u.email == emailController.text &&
-                    u.password == passwordController.text
+                    i.email == emailController.text &&
+                    i.password == passwordController.text
                   ) {
 
-                    encontrado = true;
+                    correcto = true;
 
                   }
 
                 }
-
-                if (encontrado) {
-
+                if (correcto) {
                   context.go('/players');
-
                 } else {
-
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("Datos incorrectos"),
@@ -97,6 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
 
           ],
+          )
         ),
       ),
     );
